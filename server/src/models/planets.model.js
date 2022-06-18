@@ -15,7 +15,7 @@ function isHabitablePlanet(planet) {
 function loadPlanetsData() {
   return new Promise((resolve, reject) => {
     fs.createReadStream(
-      path.join(__dirname, "..", "..", "data", "kepler_data.csv")
+      path.resolve(__dirname, "..", "..", "data", "kepler_data.csv")
     )
       .pipe(
         parse({
@@ -40,7 +40,11 @@ function loadPlanetsData() {
   });
 }
 
+function getAllPlanets() {
+  return habitablePlanets;
+}
+
 module.exports = {
   loadPlanetsData,
-  planets: habitablePlanets,
+  getAllPlanets,
 };
