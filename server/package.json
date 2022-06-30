@@ -6,11 +6,14 @@
   "scripts": {
     "watch": "nodemon src/server.js",
     "test-watch": "jest --watch",
-    "test": "jest",
+    "test": "jest --detectOpenHandles",
     "start": "node src/server.js"
   },
   "author": "",
   "license": "ISC",
+  "jest":{
+    "testEnvironment" : "node"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "csv-parse": "^5.1.0",
